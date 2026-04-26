@@ -8,11 +8,11 @@ class MacparakeetCli < Formula
 
   # Apple Silicon only — the Neural Engine is the entire performance story
   depends_on arch: :arm64
+  # Runtime media deps (bundled inside MacParakeet.app, but the standalone
+  # CLI install needs them on PATH).
+  depends_on "ffmpeg"
   # macOS 14.2+ (Sonoma) — required by FluidAudio + Swift 6 runtime
   depends_on macos: :sonoma
-  # Runtime media deps (bundled inside MacParakeet.app, but the standalone
-  # CLI install needs them on PATH). Both are stable Homebrew formulae.
-  depends_on "ffmpeg"
   depends_on "yt-dlp"
 
   def install
