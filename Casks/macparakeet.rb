@@ -1,5 +1,5 @@
 cask "macparakeet" do
-  version "0.5.7,20260421200420"
+  version "0.5.7"
   sha256 :no_check
 
   url "https://downloads.macparakeet.com/MacParakeet.dmg"
@@ -9,7 +9,7 @@ cask "macparakeet" do
 
   livecheck do
     url "https://macparakeet.com/appcast.xml"
-    strategy :sparkle
+    strategy :sparkle, &:short_version
   end
 
   auto_updates true
