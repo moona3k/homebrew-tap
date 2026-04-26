@@ -11,11 +11,15 @@ class MacparakeetCli < Formula
   # Runtime media deps (bundled inside MacParakeet.app, but the standalone
   # CLI install needs them on PATH).
   depends_on "ffmpeg"
-  # macOS 14.2+ (Sonoma) — required by FluidAudio + Swift 6 runtime
-  depends_on macos: ">= 14.2"
+  # macOS 14.2+ (Sonoma) — required by FluidAudio + Swift 6 runtime.
+  # Homebrew's `depends_on macos:` only accepts major-version symbols, so
+  # `:sonoma` covers 14.0+; the patch-level floor (14.2) is enforced at
+  # install time via the `odie` check below.
+  depends_on macos: :sonoma
   depends_on "yt-dlp"
 
   def install
+    odie "macparakeet-cli requires macOS 14.2 or later" if MacOS.version < "14.2"
     bin.install "macparakeet-cli"
   end
 
