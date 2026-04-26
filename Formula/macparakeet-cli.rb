@@ -12,7 +12,7 @@ class MacparakeetCli < Formula
   # CLI install needs them on PATH).
   depends_on "ffmpeg"
   # macOS 14.2+ (Sonoma) — required by FluidAudio + Swift 6 runtime
-  depends_on macos: :sonoma
+  depends_on macos: ">= 14.2"
   depends_on "yt-dlp"
 
   def install
