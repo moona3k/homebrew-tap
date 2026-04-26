@@ -1,6 +1,6 @@
 cask "macparakeet" do
-  version "0.5.7"
-  sha256 "6188cf45f272e24679e8bf49e0c4860c800355b827743c386c785ccdff2166f6"
+  version "0.5.7,20260421200420"
+  sha256 :no_check
 
   url "https://downloads.macparakeet.com/MacParakeet.dmg"
   name "MacParakeet"

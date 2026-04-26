@@ -2,19 +2,18 @@ class MacparakeetCli < Formula
   desc "Local STT, transcription, and prompt automation for Apple Silicon"
   homepage "https://macparakeet.com"
   url "https://github.com/moona3k/macparakeet/releases/download/cli-v1.0.0/macparakeet-cli-1.0.0-darwin-arm64.tar.gz"
+  version "1.0.0"
   sha256 "10d06660b3edca50e3297a0d24007bbee85f81f784ec67f1d684d9a7d9cd05ed"
   license "GPL-3.0-or-later"
-  version "1.0.0"
 
-  # macOS 14.2+ (Sonoma) — required by FluidAudio + Swift 6 runtime
-  depends_on macos: :sonoma
   # Apple Silicon only — the Neural Engine is the entire performance story
   depends_on arch: :arm64
-
   # Runtime media deps (bundled inside MacParakeet.app, but the standalone
   # CLI install needs them on PATH). Both are stable Homebrew formulae.
   depends_on "ffmpeg"
   depends_on "yt-dlp"
+  # macOS 14.2+ (Sonoma) — required by FluidAudio + Swift 6 runtime
+  depends_on macos: :sonoma
 
   def install
     bin.install "macparakeet-cli"
