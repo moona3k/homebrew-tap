@@ -1,9 +1,9 @@
 class MacparakeetCli < Formula
   desc "Local STT, transcription, and prompt automation for Apple Silicon"
   homepage "https://macparakeet.com"
-  url "https://github.com/moona3k/macparakeet/releases/download/cli-v2.3.0/macparakeet-cli-2.3.0-darwin-arm64.tar.gz"
-  version "2.3.0"
-  sha256 "6d0913680bcebbc7eeaeb68361efcd9b4bd083b43cbe8aa38d4f5dc8776b4466"
+  url "https://github.com/moona3k/macparakeet/releases/download/cli-v2.3.1/macparakeet-cli-2.3.1-darwin-arm64.tar.gz"
+  version "2.3.1"
+  sha256 "4250a6d8ad2f829ba00ab6dd4514764e6fa3bb28d6607e5547263fe554be2b6d"
   license "GPL-3.0-or-later"
 
   # Apple Silicon only — the Neural Engine is the entire performance story
