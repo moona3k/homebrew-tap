@@ -1,5 +1,5 @@
 cask "macparakeet" do
-  version "0.5.7"
+  version "0.6.18"
   sha256 :no_check
 
   url "https://downloads.macparakeet.com/MacParakeet.dmg"
