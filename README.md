@@ -30,25 +30,27 @@ fully offline.
 **Agent integration docs:** [`integrations/README.md`](https://github.com/moona3k/macparakeet/tree/main/integrations)
 **For agent operators:** <https://macparakeet.com/agents>
 
-## Available casks
+> Why a tap and not homebrew-core? `macparakeet-cli` ships as a signed,
+> precompiled Apple-Silicon binary, and homebrew-core only accepts formulae
+> that build from source (or produce cross-platform binaries). A tap is the
+> correct permanent home for it.
 
-### `macparakeet`
+## Mac app — now in the official Homebrew cask
 
-The full MacParakeet macOS app — system-wide dictation, file
-transcription, and meeting recording. The same DMG distributed at
-<https://macparakeet.com>, but installable via brew.
+The MacParakeet macOS app no longer ships from this tap. It graduated to the
+official **[`homebrew/cask`](https://github.com/Homebrew/homebrew-cask/blob/HEAD/Casks/m/macparakeet.rb)**
+on 2026-06-06, so no tap is required:
 
 ```bash
-brew tap moona3k/tap
 brew install --cask macparakeet
 ```
 
-**Requirements:** macOS 14.2+ on Apple Silicon. The app self-updates
-via Sparkle (`auto_updates true` in the cask), so brew won't fight
-with in-app updates after install.
+Homebrew keeps the official cask up to date automatically (BrewTestBot
+autobump). Existing app installs from this tap are redirected to the official
+cask automatically via [`tap_migrations.json`](tap_migrations.json) on the
+next `brew update`.
 
 ## License
 
-The formulae and casks in this tap are MIT-licensed. The packages they
-install have their own licenses (`macparakeet-cli` and `macparakeet` are
-both GPL-3.0 — see source).
+The formulae in this tap are MIT-licensed. The packages they install have
+their own licenses (`macparakeet-cli` is GPL-3.0 — see source).
