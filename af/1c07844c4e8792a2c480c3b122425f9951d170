@@ -1,0 +1,21 @@
+Formula/macparakeet-cli.rb
+  s_a6a03680f52612::t_edbdae34b2fb6a 1-2,6-8,30-34,52-53
+README.md
+  s_a6a03680f52612::t_edbdae34b2fb6a 24-28
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.14",
+  "base_commit_sha": "af1c07844c4e8792a2c480c3b122425f9951d170",
+  "prompts": {},
+  "sessions": {
+    "s_a6a03680f52612": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f7947-b2d2-70b0-8bb8-80d1048d0f0f",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Daniel Moon <32221114+moona3k@users.noreply.github.com>"
+    }
+  }
+}
