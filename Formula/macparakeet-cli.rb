@@ -1,9 +1,11 @@
+require "json"
+
 class MacparakeetCli < Formula
   desc "Local STT, transcription, and prompt automation for Apple Silicon"
   homepage "https://macparakeet.com"
-  url "https://github.com/moona3k/macparakeet/releases/download/cli-v2.3.1/macparakeet-cli-2.3.1-darwin-arm64.tar.gz"
-  version "2.3.1"
-  sha256 "4250a6d8ad2f829ba00ab6dd4514764e6fa3bb28d6607e5547263fe554be2b6d"
+  url "https://github.com/moona3k/macparakeet/releases/download/cli-v3.1.0/macparakeet-cli-3.1.0-darwin-arm64.tar.gz"
+  version "3.1.0"
+  sha256 "05d0cb95ac4fb26bc18c5adecb7bb19d2a1892a42dd69bd5fce388f2138426bc"
   license "GPL-3.0-or-later"
 
   # Apple Silicon only — the Neural Engine is the entire performance story
@@ -25,8 +27,11 @@ class MacparakeetCli < Formula
 
   def caveats
     <<~EOS
-      First run downloads the Parakeet TDT speech model (~6 GB) to:
-        ~/Library/Application Support/MacParakeet/models/
+      Local Parakeet, Nemotron, and Cohere models are cached by FluidAudio at:
+        ~/Library/Application Support/FluidAudio/Models/
+
+      Optional Whisper models are stored at:
+        ~/Library/Application Support/MacParakeet/models/stt/whisper/
 
       The CLI shares its database with the macOS app at:
         ~/Library/Application Support/MacParakeet/macparakeet.db
@@ -44,5 +49,7 @@ class MacparakeetCli < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/macparakeet-cli --version")
+    spec = JSON.parse(shell_output("#{bin}/macparakeet-cli spec --json"))
+    assert_equal version.to_s, spec.fetch("cliVersion")
   end
 end
